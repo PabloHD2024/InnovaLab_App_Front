@@ -4,7 +4,7 @@
     "slug": "Innoba_Lab_App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/LogoLoteriaDeLaCiudad.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true

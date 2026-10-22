@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { 
   View, Text, StyleSheet, ScrollView, 
-  TouchableOpacity, Switch, TextInput 
+  TouchableOpacity, Switch, TextInput, Image
 } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+
+
+// Importamos logo de la loteria desde la carpeta assets
+const LogoImage = require('./assets/LogoLoteriaDeLaCiudad.png');
 
 const colors = {
   background: '#F8F8F8',
   surface: '#FFFFFF',
-  textPrimary: '#111111',
+  textPrimary: '#171717',
   textSecondary: '#666666',
   border: '#CCCCCC',
   primary: '#888888',
@@ -43,7 +47,13 @@ export default function App() {
     />
   );
 
-  const BigLogo = () => <View style={styles.bigLogo} />;
+  const BigLogo = () => (
+  <Image 
+    source={LogoImage} 
+    style={styles.logoImage} 
+    resizeMode="contain" 
+  />
+);
 
   // --- NAVEGADOR DE PRUEBA ---
   const DevMenu = () => (
@@ -390,11 +400,11 @@ const styles = StyleSheet.create({
   iconCircle: { width: 100, height: 100, borderRadius: 50, backgroundColor: colors.circlePlaceholder, justifyContent: 'center', alignItems: 'center', marginBottom: 20 },
   title: { fontSize: 24, fontWeight: 'bold', color: colors.textPrimary, textAlign: 'center', marginBottom: 10 },
   subtitle: { fontSize: 16, color: colors.textPrimary, textAlign: 'center', marginBottom: 10, fontWeight: '600' },
-  paragraph: { fontSize: 14, color: colors.textPrimary, textAlign: 'center', marginBottom: 20, lineHeight: 20 },
+  paragraph: { fontSize: 17, color: colors.textPrimary, textAlign: 'center', marginBottom: 20, lineHeight: 20 },
   boldText: { fontSize: 15, fontWeight: 'bold', color: colors.textPrimary },
   smallText: { fontSize: 12, color: colors.textSecondary, marginTop: 2 },
   sectionTitle: { fontSize: 16, fontWeight: 'bold', color: colors.textPrimary, marginTop: 20, marginBottom: 10 },
-  listItem: { fontSize: 14, color: colors.textPrimary, marginBottom: 8, paddingLeft: 10 },
+  listItem: { fontSize: 17, color: colors.textPrimary, marginBottom: 8, paddingLeft: 10 },
   
   // Botones y Inputs
   button: { height: 50, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginVertical: 8, width: '100%' },
@@ -426,4 +436,13 @@ const styles = StyleSheet.create({
   // Barra de progreso
   progressBarBg: { height: 10, backgroundColor: '#E0E0E0', borderRadius: 5, width: '100%', overflow: 'hidden' },
   progressBarFill: { height: '100%', width: '60%', backgroundColor: '#A0A0A0' },
+
+  // Logo Loteria de la ciudad
+  logoImage: { 
+    width: 180,      // Ancho de la imagen
+    height: 180,     // Alto de la imagen
+    alignSelf: 'center', // Centrado
+    marginBottom: 10,    // Margen inferior para separar del texto
+  },
+
 });
